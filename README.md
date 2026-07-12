@@ -3,7 +3,9 @@
 KPortfolio is the personal portfolio of Krish Jain, built with React. It presents an interactive single-page experience that includes everything important about Krish, such as a hero section, skills, experience, education, projects, achievements, and contact details.
 
 The site combines modern UI libraries and motion effects to create a polished presentation for personal branding, project showcases, and professional contact information.
+## Deployment
 
+This portfolio is deployed on Render and is live at: https://krishverse-portfolio.onrender.com
 ## Features
 
 - Responsive layout for desktop and mobile screens
@@ -65,8 +67,6 @@ Removes the Create React App abstraction and copies the build configuration into
 4. Start the development server with `npm start`.
 5. Build the production version with `npm run build` when you are ready to deploy.
 
-## Deployment
 
-This portfolio is deployed on Render and is live at: https://krishverse-portfolio.onrender.com
 
 The repository includes a `render.yaml` file for deployment on Render. The production build output is generated in the `build` directory.
