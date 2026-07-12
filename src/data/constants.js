@@ -9,7 +9,7 @@ export const Bio = {
     "I am a Computer Engineering student with experience in MERN stack development, AI-powered applications, and research in healthcare AI. Passionate about building scalable systems, solving real-world problems through technology, and contributing to innovative software and research-driven projects.",
   github: "https://github.com/krish2006-jain",
   resume:
-    "https://drive.google.com/drive/folders/1w0ipHUd4TqT7p2Li_WIecFbqL2nmbnVZ?usp=drive_link",
+    "https://drive.google.com/drive/folders/154DbgBJY3p1Ogl80mwK9WThStUiHjwjv?usp=drive_link",
   linkedin: "https://www.linkedin.com/in/krish-jain-6687bb329",
   insta: "https://www.instagram.com/_krish_jain14/#",
 };
@@ -23,34 +23,34 @@ export const skills = [
         name: "HTML",
         image: "https://www.w3.org/html/logo/badge/html5-badge-h-solo.png",
       },
-{
-  name: "CSS",
-  image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
-},
-{
-  name: "JavaScript",
-  image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-},
-           {
+      {
+        name: "CSS",
+        image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+      },
+      {
+        name: "JavaScript",
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+      },
+      {
         name: "React Js",
         image:
           "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
       },
-         {
-  name: "Next.js",
-  image:
-    "https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg",
-},
       {
-  name: "Tailwind CSS",
-  image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
-},
+        name: "Next.js",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+      },
       {
         name: "Bootstrap",
         image:
           "https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png",
       },
-   
+
     ],
   },
   {
@@ -95,7 +95,7 @@ export const skills = [
         image:
           "https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg",
       },
-           {
+      {
         name: "Python",
         image:
           "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
@@ -105,26 +105,26 @@ export const skills = [
   {
     title: "Others & Tools",
     skills: [
-{
-    name: "Git",
-    image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg",
-  },
-  {
-    name: "GitHub",
-    image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
-  },
-  {
-    name: "VS Code",
-    image: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg",
-  },
-  {
-    name: "Postman",
-    image: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
-  },
-  {
-    name: "Figma",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
-  },
+      {
+        name: "Git",
+        image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg",
+      },
+      {
+        name: "GitHub",
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
+      },
+      {
+        name: "VS Code",
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg",
+      },
+      {
+        name: "Postman",
+        image: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+      },
+      {
+        name: "Figma",
+        image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+      },
     ],
   },
   {
@@ -147,22 +147,22 @@ export const skills = [
 ];
 
 export const experiences = [
-{
-  id: 0,
-  img: "/toyo.png",
-  role: "React Developer Intern",
-  company: "Toyo Engineering India Pvt. Ltd.",
-  date: "Jun 2026 - Jul 2026",
-  desc: "Completed a one-month internship as a React Developer, where I developed responsive React components, enhanced the company's UI/UX, and improved the overall website experience by creating modern, user-friendly, and visually consistent interfaces.",
-  skills: [
-    "ReactJS",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "Responsive Design",
-    "UI/UX Design",
-  ],
-},
+  {
+    id: 0,
+    img: "/toyo.png",
+    role: "React Developer Intern",
+    company: "Toyo Engineering India Pvt. Ltd.",
+    date: "Jun 2026 - Jul 2026",
+    desc: "Completed a one-month internship as a React Developer, where I developed responsive React components, enhanced the company's UI/UX, and improved the overall website experience by creating modern, user-friendly, and visually consistent interfaces.",
+    skills: [
+      "ReactJS",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Responsive Design",
+      "UI/UX Design",
+    ],
+  },
   {
     id: 1,
     img: "/swdc.png",
@@ -245,6 +245,45 @@ export const education = [
 export const projects = [
   {
     id: 0,
+    title: "Netflix Clone — MERN Stack",
+    date: "2026",
+    description:
+      "Developed a full-stack Netflix Clone using the MERN stack with secure JWT authentication, TMDB API integration, movie and TV show search, YouTube trailer streaming, personalized search history, and a fully responsive Netflix-inspired user interface.",
+    image: "",
+    tags: [
+      "React Js",
+      "Node Js",
+      "Express Js",
+      "MongoDB",
+      "JWT",
+      "Tailwind CSS",
+      "TMDB API",
+      "Axios",
+      "Zustand",
+    ],
+    category: "web app",
+    github: "https://github.com/krish2006-jain/Netflix-clone-using-mernstack",
+    webapp: "https://netflix-clone-using-mernstack.onrender.com",
+  },
+  {
+    id: 1,
+    title: "Personal Portfolio Website",
+    date: "2025",
+    description:
+      "Developed a responsive portfolio website using React, Styled Components, and Framer Motion to showcase academic details, experiences, and developer projects.",
+    image: "",
+    tags: [
+      "React Js",
+      "Styled Components",
+      "Framer Motion",
+      "Responsive Design",
+    ],
+    category: "web app",
+    github: "https://github.com/krish2006-jain/MyPortfolio",
+    webapp: "https://krishverse-portfolio.onrender.com/",
+  },
+  {
+    id: 2,
     title: "SaathiCare — Alzheimer's Care Platform -Aftermath Hackathon",
     date: "2026",
     description:
@@ -261,10 +300,11 @@ export const projects = [
     ],
     category: "web app",
     github: "https://github.com/krish2006-jain/Snack",
-    webapp: "https://snack-production-ca02.up.railway.app",
+
   },
+
   {
-    id: 1,
+    id: 4,
     title: "Kochi MetroMind – SIH Problem Statement",
     date: "2025",
     description:
@@ -278,10 +318,35 @@ export const projects = [
       "Dashboard",
     ],
     category: "web app",
-    github: "https://github.com/krish2006-jain/kasped-changes-part2",
+    github: "https://github.com/krish2006-jain/kasped-changes-part2.git",
   },
   {
-    id: 2,
+    id: 3,
+    title: "Stockly — Inventory Management System",
+    date: "2026",
+    description:
+      "Developed a full-stack multi-tenant Inventory Management System using the MERN stack with role-based access control, real-time inventory tracking, Point of Sale (POS), QR/Barcode scanning, automated email notifications, PDF report generation, and a responsive SaaS dashboard for efficient business operations.",
+    image: "",
+    tags: [
+      "React Js",
+      "Node Js",
+      "Express Js",
+      "MongoDB",
+      "JWT",
+      "Tailwind CSS",
+      "SaaS",
+      "POS",
+      "QR Code",
+      "Barcode",
+      "Nodemailer",
+      "PDFKit",
+    ],
+    category: "web app",
+    github: "https://github.com/krish2006-jain/Inventory-Management-System",
+    webapp: "https://inventory-management-system-1-ud6w.onrender.com",
+  },
+  {
+    id: 5,
     title: "Helios — The Productivity Orbit (ACM Hackathon)",
     date: "2025",
     description:
@@ -294,22 +359,7 @@ export const projects = [
       "Orbit Visualization",
     ],
     category: "web app",
-    github: "https://github.com/krish2006-jain",
+    github: "https://github.com/krish2006-jain/5keasy.git",
   },
-  {
-    id: 3,
-    title: "Personal Portfolio Website",
-    date: "2025",
-    description:
-      "Developed a responsive portfolio website using React, Styled Components, and Framer Motion to showcase academic details, experiences, and developer projects.",
-    image: "",
-    tags: [
-      "React Js",
-      "Styled Components",
-      "Framer Motion",
-      "Responsive Design",
-    ],
-    category: "web app",
-    github: "https://github.com/krish2006-jain/MyPortfolio",
-  },
+
 ];

@@ -45,7 +45,7 @@ const Desc = styled.div`
   }
 `;
 
-const ContactForm = styled.div`
+const ContactForm = styled.form`
   width: 95%;
   max-width: 600px;
   display: flex;
@@ -111,7 +111,7 @@ const ContactButton = styled.input`
 
 const Contact = () => {
   const form = useRef();
-  const handelSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     emailjs
       .sendForm(
@@ -121,12 +121,12 @@ const Contact = () => {
         "UenWP44zxYUq9Eczf"
       )
       .then(
-        (result) => {
+        () => {
           alert("Message Sent");
-          form.current.result();
+          form.current.reset();
         },
         (error) => {
-          alert(error);
+          alert(error?.text || "Failed to send message");
         }
       );
   };
@@ -141,7 +141,7 @@ const Contact = () => {
         >
           Feel free to reach out to me for any questions or opportunities!
         </Desc>
-        <ContactForm onSubmit={handelSubmit}>
+        <ContactForm ref={form} onSubmit={handleSubmit}>
           <ContactTitle>Email Me 🚀</ContactTitle>
           <ContactInput placeholder="Your Email" name="from_email" />
           <ContactInput placeholder="Your Name" name="from_name" />

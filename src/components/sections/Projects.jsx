@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { projects } from "../../data/constants";
 import ProjectCard from "../cards/ProjectCard";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 
 /* ─── Layout ─── */
 const Container = styled.div`
@@ -91,75 +90,33 @@ const Divider = styled.div`
 const CarouselWrapper = styled.div`
   position: relative;
   width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
 `;
 
 const Track = styled.div`
   display: flex;
   gap: 24px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
   padding: 8px 4px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Slide = styled.div`
   flex: 0 0 calc(50% - 12px);
   transition: opacity 0.35s ease;
+  scroll-snap-align: start;
 
   @media (max-width: 860px) {
     flex: 0 0 100%;
   }
-`;
-
-const ArrowBtn = styled.button`
-  flex-shrink: 0;
-  background: #161b27;
-  border: 1.5px solid #2d3748;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: ${({ theme }) => theme.text_primary};
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
-  z-index: 2;
-
-  &:hover:not(:disabled) {
-    border-color: ${({ theme }) => theme.primary};
-    background: ${({ theme }) => theme.primary}20;
-    color: ${({ theme }) => theme.primary};
-  }
-
-  &:disabled {
-    opacity: 0.3;
-    cursor: default;
-  }
-
-  svg {
-    font-size: 22px;
-  }
-`;
-
-/* ─── Dots ─── */
-const Dots = styled.div`
-  display: flex;
-  gap: 8px;
-  margin-top: 24px;
-  justify-content: center;
-`;
-
-const Dot = styled.div`
-  width: ${({ active }) => (active ? "22px" : "8px")};
-  height: 8px;
-  border-radius: 4px;
-  background: ${({ active, theme }) =>
-    active ? theme.primary : theme.primary + "40"};
-  transition: width 0.3s ease, background 0.3s ease;
-  cursor: pointer;
 `;
 
 /* ─── Empty state ─── */
@@ -178,27 +135,22 @@ const CATEGORIES = [
   { key: "machine learning", label: "ML" },
 ];
 
-const CARDS_PER_PAGE = 2; // shown at a time on desktop
-
 const Projects = () => {
   const [toggle, setToggle] = useState("all");
-  const [page, setPage] = useState(0);
+  const trackRef = useRef(null);
 
   const filtered =
     toggle === "all"
       ? projects
       : projects.filter((p) => p.category === toggle);
 
-  const totalPages = Math.ceil(filtered.length / CARDS_PER_PAGE);
-  const visible = filtered.slice(
-    page * CARDS_PER_PAGE,
-    page * CARDS_PER_PAGE + CARDS_PER_PAGE
-  );
-
   const handleToggle = (key) => {
     setToggle(key);
-    setPage(0);
   };
+
+  useEffect(() => {
+    trackRef.current?.scrollTo({ left: 0, behavior: "smooth" });
+  }, [toggle]);
 
   return (
     <Container id="Projects">
@@ -223,50 +175,15 @@ const Projects = () => {
         {filtered.length === 0 ? (
           <Empty>No projects in this category yet.</Empty>
         ) : (
-          <>
-            <CarouselWrapper>
-              <ArrowBtn
-                onClick={() => setPage((p) => Math.max(p - 1, 0))}
-                disabled={page === 0}
-                aria-label="Previous"
-              >
-                <ChevronLeft />
-              </ArrowBtn>
-
-              <Track>
-                {visible.map((project, i) => {
-                  const globalIdx = page * CARDS_PER_PAGE + i;
-                  return (
-                    <Slide key={project.id}>
-                      <ProjectCard project={project} index={globalIdx} />
-                    </Slide>
-                  );
-                })}
-              </Track>
-
-              <ArrowBtn
-                onClick={() =>
-                  setPage((p) => Math.min(p + 1, totalPages - 1))
-                }
-                disabled={page === totalPages - 1}
-                aria-label="Next"
-              >
-                <ChevronRight />
-              </ArrowBtn>
-            </CarouselWrapper>
-
-            {totalPages > 1 && (
-              <Dots>
-                {Array.from({ length: totalPages }).map((_, i) => (
-                  <Dot
-                    key={i}
-                    active={i === page}
-                    onClick={() => setPage(i)}
-                  />
-                ))}
-              </Dots>
-            )}
-          </>
+          <CarouselWrapper>
+            <Track ref={trackRef} aria-label="Project cards slider">
+              {filtered.map((project, i) => (
+                <Slide key={project.id}>
+                  <ProjectCard project={project} index={i} />
+                </Slide>
+              ))}
+            </Track>
+          </CarouselWrapper>
         )}
       </Wrapper>
     </Container>
