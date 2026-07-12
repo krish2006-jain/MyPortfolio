@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import Tilt from "react-parallax-tilt";
-import EarthCanvas from "../canvas/Earth";
 
 const CardInner = styled.div`
   display: flex;
@@ -170,10 +169,6 @@ const ExperienceCard = ({ experience }) => {
         </div>
       </Tilt>
     </VerticalTimelineElement>
-    
-
-
-    
   );
 };
 

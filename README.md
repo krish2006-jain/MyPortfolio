@@ -52,8 +52,18 @@ Removes the Create React App abstraction and copies the build configuration into
 ## Getting Started
 
 1. Install dependencies with `npm install`.
-2. Start the development server with `npm start`.
-3. Build the production version with `npm run build` when you are ready to deploy.
+2. Create a `.env` file in the project root with:
+
+	```env
+	REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+	REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+	REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+	REACT_APP_CONTACT_RECEIVER_EMAIL=krishkjai90@gmail.com
+	```
+
+3. In your EmailJS template, include these variables in the message body: `{{from_name}}`, `{{from_email}}`, `{{subject}}`, `{{message}}`, and `{{to_email}}`.
+4. Start the development server with `npm start`.
+5. Build the production version with `npm run build` when you are ready to deploy.
 
 ## Deployment
 

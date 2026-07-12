@@ -1,6 +1,15 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID =
+  process.env.REACT_APP_EMAILJS_SERVICE_ID || "service_sgwu8xd";
+const EMAILJS_TEMPLATE_ID =
+  process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "template_8nwotnd";
+const EMAILJS_PUBLIC_KEY =
+  process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "UenWP44zxYUq9Eczf";
+const CONTACT_RECEIVER_EMAIL =
+  process.env.REACT_APP_CONTACT_RECEIVER_EMAIL || "krishkjai90@gmail.com";
 
 const Container = styled.div`
   display: flex;
@@ -107,26 +116,38 @@ const ContactButton = styled.input`
     background: ${({ theme }) => theme.primaryDark};
     transform: translateY(-1px);
   }
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
 `;
 
 const Contact = () => {
   const form = useRef();
+  const [isSending, setIsSending] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isSending) return;
+
+    setIsSending(true);
     emailjs
       .sendForm(
-        "service_sgwu8xd",
-        "template_8nwotnd",
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         form.current,
-        "UenWP44zxYUq9Eczf"
+        EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
           alert("Message Sent");
           form.current.reset();
+          setIsSending(false);
         },
         (error) => {
           alert(error?.text || "Failed to send message");
+          setIsSending(false);
         }
       );
   };
@@ -143,11 +164,26 @@ const Contact = () => {
         </Desc>
         <ContactForm ref={form} onSubmit={handleSubmit}>
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" name="message" rows={4} />
-          <ContactButton type="submit" value="Send" />
+          <input type="hidden" name="to_email" value={CONTACT_RECEIVER_EMAIL} />
+          <ContactInput
+            placeholder="Your Email"
+            name="from_email"
+            type="email"
+            required
+          />
+          <ContactInput placeholder="Your Name" name="from_name" required />
+          <ContactInput placeholder="Subject" name="subject" required />
+          <ContactInputMessage
+            placeholder="Message"
+            name="message"
+            rows={4}
+            required
+          />
+          <ContactButton
+            type="submit"
+            value={isSending ? "Sending..." : "Send"}
+            disabled={isSending}
+          />
         </ContactForm>
       </Wrapper>
     </Container>
