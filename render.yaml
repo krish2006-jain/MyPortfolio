@@ -3,7 +3,7 @@ services:
     name: krishverse-portfolio
     runtime: static
     buildCommand: npm run build
-    publishPath: build
+    staticPublishPath: build
     routes:
       - type: rewrite
         source: /*
