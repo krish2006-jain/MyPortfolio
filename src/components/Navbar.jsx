@@ -6,7 +6,7 @@ import { MenuRounded } from "@mui/icons-material";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
-  height: 80px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +15,9 @@ const Nav = styled.div`
   top: 0;
   z-index: 10;
   color: white;
+  border-bottom: 1px solid ${({ theme }) => theme.border};
+  backdrop-filter: blur(12px);
+  background-color: ${({ theme }) => theme.bg}ee;
 `;
 
 const NavbarContainer = styled.div`
@@ -29,10 +32,21 @@ const NavbarContainer = styled.div`
 const NavLogo = styled(LinkR)`
   width: 80%;
   padding: 0 6px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   text-decoration: none;
   color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+`;
+
+const LogoImg = styled.img`
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
 `;
 
 const NavItems = styled.ul`
@@ -73,21 +87,22 @@ const ButtonContainer = styled.div`
 `;
 
 const GithubButton = styled.a`
-  border: 1px solid ${({ theme }) => theme.primary};
+  border: 1.5px solid ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.primary};
   justify-content: center;
   display: flex;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 8px 18px;
+  font-size: 15px;
   font-weight: 500;
-  transition: all 0.6s ease-in-out;
+  transition: all 0.2s ease;
   text-decoration: none;
   &:hover {
     background: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.text_primary};
+    color: white;
+    transform: translateY(-1px);
   }
 `;
 
@@ -132,7 +147,10 @@ const Navbar = () => {
   return (
     <Nav>
       <NavbarContainer>
-        <NavLogo to="/">Portfolio</NavLogo>
+        <NavLogo to="/">
+          <LogoImg src="/favico.ico" alt="logo" />
+          KrishVerse
+        </NavLogo>
 
         <MobileIcon onClick={() => setIsOpen(!isOpen)}>
           <MenuRounded style={{ color: "inherit" }} />
@@ -144,6 +162,8 @@ const Navbar = () => {
           <NavLink href="#Experience">Experience</NavLink>
           <NavLink href="#Projects">Projects</NavLink>
           <NavLink href="#Education">Education</NavLink>
+          <NavLink href="#Achievements">Achievements</NavLink>
+          <NavLink href="#Contact">Contact</NavLink>
         </NavItems>
 
         {isOpen && (
@@ -162,6 +182,12 @@ const Navbar = () => {
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
               Education
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Achievements">
+              Achievements
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Contact">
+              Contact
             </NavLink>
             <GithubButton
               href={Bio.github}

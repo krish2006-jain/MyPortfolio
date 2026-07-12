@@ -6,8 +6,8 @@ import Tilt from "react-parallax-tilt"
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-contnet: center;
-  position: rlative;
+  justify-content: center;
+  position: relative;
   z-index: 1;
   align-items: center;
 `;
@@ -58,19 +58,23 @@ const SkillsContainer = styled.div`
 const Skill = styled.div`
   width: 100%;
   max-width: 500px;
-  background-color: rgba(17, 25, 40, 0.83);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
-  border-radius: 16px;
-  padding: 18px 36px;
+  background-color: ${({ theme }) => theme.card};
+  border: 1px solid ${({ theme }) => theme.border};
+  border-radius: 14px;
+  padding: 24px 32px;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  &:hover {
+    border-color: ${({ theme }) => theme.primary}40;
+    box-shadow: 0 4px 24px rgba(59, 130, 246, 0.08);
+  }
   @media (max-width: 768px) {
     max-width: 400px;
-    padding: 10px 36px;
+    padding: 16px 24px;
   }
 
   @media (max-width: 500px) {
     max-width: 330px;
-    padding: 10px 36px;
+    padding: 12px 20px;
   }
 `;
 
@@ -90,24 +94,29 @@ const SkillList = styled.div`
   margin-bottom: 20px;
 `;
 const SkillItem = styled.div`
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 80};
-  border: 1px solid ${({ theme }) => theme.text_primary + 80};
-  border-radius: 12px;
-  padding: 12px 16px;
+  color: ${({ theme }) => theme.text_secondary};
+  border: 1px solid ${({ theme }) => theme.border};
+  border-radius: 8px;
+  padding: 8px 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  &:hover {
+    border-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.text_primary};
+  }
 
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: 8px 12px;
+    padding: 6px 12px;
   }
   @media (max-width: 500px) {
-    font-size: 14px;
-    padding: 6px 12px;
+    font-size: 13px;
+    padding: 5px 10px;
   }
 `;
 const SkillImage = styled.img`
@@ -136,7 +145,7 @@ const Skills = () => {
                 <SkillList>
                   {skill.skills.map((item, index_x) => (
                     <SkillItem key={`skill-x-${index_x}`}>
-                      <SkillImage src={item.image} />
+                      {item.image && <SkillImage src={item.image} />}
                       {item.name}
                     </SkillItem>
                   ))}

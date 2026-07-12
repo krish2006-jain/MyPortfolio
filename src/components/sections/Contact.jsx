@@ -5,8 +5,8 @@ import emailjs from "@emailjs/browser";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-contnet: center;
-  position: rlative;
+  justify-content: center;
+  position: relative;
   z-index: 1;
   align-items: center;
 `;
@@ -50,11 +50,10 @@ const ContactForm = styled.div`
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(17, 25, 40, 0.83);
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  background-color: ${({ theme }) => theme.card};
+  border: 1px solid ${({ theme }) => theme.border};
   padding: 32px;
-  border-radius: 12px;
-  box-shadow: rgba(23, 92, 230, 0.1) 0px 4px 24px;
+  border-radius: 14px;
   margin-top: 28px;
   gap: 12px;
 `;
@@ -94,14 +93,20 @@ const ContactButton = styled.input`
   width: 100%;
   text-decoration: none;
   text-align: center;
-  background: hsla(271, 100%, 50%, 1);
+  background: ${({ theme }) => theme.primary};
   padding: 13px 16px;
   margin-top: 2px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: none;
-  color: ${({ theme }) => theme.text_primary};
-  font-size: 18px;
+  color: white;
+  font-size: 16px;
   font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  &:hover {
+    background: ${({ theme }) => theme.primaryDark};
+    transform: translateY(-1px);
+  }
 `;
 
 const Contact = () => {
@@ -126,7 +131,7 @@ const Contact = () => {
       );
   };
   return (
-    <Container id="Education">
+    <Container id="Contact">
       <Wrapper>
         <Title>Contact</Title>
         <Desc

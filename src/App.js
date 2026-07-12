@@ -9,29 +9,25 @@ import Education from "./components/sections/Education";
 import StartCanvas from "./components/canvas/Stars";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
+import Achievements from "./components/sections/Achievements";
 import Footer from "./components/sections/Footer";
 
 const Body = styled.div`
-  background-color: ${({ theme }) => theme.bg};
+  background-color: transparent;
   width: 100%;
   overflow-x: hidden;
   position: relative;
+  z-index: 1;
 `;
 
 const Wrapper = styled.div`
   padding-bottom: 100px;
   background: linear-gradient(
-      38.73deg,
-      rgba(204, 0, 187, 0.15) 0%,
-      rgba(201, 32, 184, 0) 50%
-    ),
-    linear-gradient(
-      141.27deg,
-      rgba(0, 70, 209, 0) 50%,
-      rgba(0, 70, 209, 0.15) 100%
+      180deg,
+      rgba(59, 130, 246, 0.04) 0%,
+      transparent 60%
     );
   width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
 `;
 
 function App() {
@@ -50,6 +46,7 @@ function App() {
             <Projects />
             <Wrapper>
               <Education />
+              <Achievements />
               <Contact />
             </Wrapper>
             <Footer />
